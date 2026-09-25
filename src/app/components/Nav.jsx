@@ -9,9 +9,7 @@ import { FitContext } from "@/context/FitContext";
 
 const Nav = () => {
   const pathname = usePathname();
-
-   const { plans, savedPlan } = useContext(FitContext);
-
+  const { plans, savedPlan } = useContext(FitContext);
   const Links = (
     <>
       <li>
@@ -98,8 +96,8 @@ const Nav = () => {
       </div>
 
       <div className="navbar-end gap-12 text-xl">
-        <h3>Plan <span className="h-2 w-2 bg-green-400 rounded-full p-2">{plans.length}</span></h3>
-        <h3>Saved <span className="h-2 w-2 bg-green-400 rounded-full p-2">{savedPlan.length}</span></h3>
+        <Link href="/myplan">Plan <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-full bg-green-400 px-1 text-xs text-white font-bold">{plans.length}</span></Link>
+        <Link href="/myplan">Saved <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-full bg-green-400 px-1 text-xs text-white font-bold">{savedPlan.length}</span></Link>
       </div>
     </div>
   );

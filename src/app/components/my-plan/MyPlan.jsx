@@ -11,15 +11,13 @@ const MyPlan = () => {
   const { plans, setPlans, savedPlan, setSavedPlan } = useContext(FitContext);
   const [activeTab, setActiveTab] = useState("today");
 
-
   const handleRemove = (id) => {
     const updatedPlan = plans.filter(
       (item) => item.id !== id
     );
 
-    savedPlan(updatedPlan);
+    setPlans(updatedPlan);
   };
-
 
   const handleRemoveSaved = (id) => {
     const updatedSaved = savedPlan.filter(
@@ -27,7 +25,6 @@ const MyPlan = () => {
     );
 
     setSavedPlan(updatedSaved);
-
     
   };
 
@@ -39,21 +36,18 @@ const MyPlan = () => {
 
       <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
 
-        {/* Header */}
         <PlanHeader
           planCount={plans.length}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
         />
 
-        {/* Stats */}
         {activeTab === "today" && (
           <div className="mt-6">
             <PlanStats plan={plans} />
           </div>
         )}
 
-        {/* Section */}
         <div className="mt-8">
 
           <div className="mb-4 flex items-center justify-between">
@@ -77,7 +71,6 @@ const MyPlan = () => {
             )}
           </div>
 
-          {/* Empty */}
           {currentList.length === 0 ? (
             <EmptyPlan type={activeTab} />
           ) : (

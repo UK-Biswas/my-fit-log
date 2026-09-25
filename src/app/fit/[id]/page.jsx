@@ -3,8 +3,6 @@ import Image from "next/image";
 import SaveButton from "./SaveButton";
 import AddToPlanButton from "./AddToPlanButton";
 
-
-
 const FitDetailsPage = async ({ params }) => {
   const { id } = await params;
 
@@ -33,7 +31,6 @@ const FitDetailsPage = async ({ params }) => {
         <div className="w-full overflow-hidden rounded-2xl bg-[#101216] border border-gray-800">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
-            {/* Image */}
             <div className="w-full h-[300px] sm:h-[450px] lg:h-[700px] p-4 sm:p-6 lg:p-10">
               <Image
                 src={fit.image}
@@ -45,7 +42,6 @@ const FitDetailsPage = async ({ params }) => {
               />
             </div>
 
-            {/* Details */}
             <div className="w-full p-5 sm:p-7 lg:p-10">
 
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase leading-tight">
@@ -56,7 +52,6 @@ const FitDetailsPage = async ({ params }) => {
                 {fit.description}
               </p>
 
-              {/* Muscle Groups */}
               <div className="flex flex-wrap gap-2 mt-5">
                 {fit.muscleGroups?.map((muscle) => (
                   <span
@@ -68,7 +63,6 @@ const FitDetailsPage = async ({ params }) => {
                 ))}
               </div>
 
-              {/* Information */}
               <div className="mt-6 border border-gray-800 rounded-xl overflow-hidden">
 
                 <div className="flex items-center justify-between gap-4 px-4 sm:px-5 py-3 border-b border-gray-800 text-sm">
@@ -122,7 +116,6 @@ const FitDetailsPage = async ({ params }) => {
 
               </div>
 
-              {/* Instructions */}
               <div className="mt-7">
                 <h2 className="text-base sm:text-lg font-bold uppercase">
                   Instructions
@@ -144,7 +137,6 @@ const FitDetailsPage = async ({ params }) => {
                 </ol>
               </div>
 
-              {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 mt-8">
                 <AddToPlanButton fit={fit} />
 

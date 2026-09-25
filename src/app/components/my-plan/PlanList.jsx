@@ -16,7 +16,7 @@ const PlanList = ({
           key={item.id}
           className="flex flex-col gap-4 rounded-xl border border-gray-800 bg-[#101216] p-3 sm:flex-row sm:items-center"
         >
-          {/* Image */}
+
           <Image
             src={item.image}
             alt={item.name}
@@ -25,7 +25,6 @@ const PlanList = ({
             className="h-20 w-full rounded-lg object-cover sm:h-16 sm:w-24"
           />
 
-          {/* Info */}
           <div className="min-w-0 flex-1">
             <h3 className="truncate text-sm font-bold uppercase">
               {item.name}
@@ -42,30 +41,17 @@ const PlanList = ({
             </div>
           </div>
 
-          {/* Quantity */}
+
           {!saved && (
             <div className="flex items-center gap-2">
-              <button
-                // onClick={() => onDecrease(item.id)}
-                className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-700 text-gray-300 hover:border-[#B7F500]"
-              >
-                −
-              </button>
 
               <span className="flex h-8 min-w-8 items-center justify-center text-sm font-bold">
                 {item.quantity || 1}
               </span>
 
-              <button
-                // onClick={() => onIncrease(item.id)}
-                className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-700 text-gray-300 hover:border-[#B7F500]"
-              >
-                +
-              </button>
             </div>
           )}
 
-          {/* Remove */}
           <button
             onClick={() =>
               saved
@@ -76,6 +62,7 @@ const PlanList = ({
           >
             Remove
           </button>
+
         </div>
       ))}
     </div>
