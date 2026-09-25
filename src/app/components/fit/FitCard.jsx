@@ -20,7 +20,7 @@ const FitCard = ({ fit }) => {
   } = fit;
 
   const handleCardClick = () => {
-    router.push(`/fit/${id}`);
+    router.push(`/fit/${fit.id}`);
   };
 
   return (

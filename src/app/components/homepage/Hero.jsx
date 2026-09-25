@@ -24,7 +24,7 @@ const Hero = () => {
           </p>
 
           <Link
-            href="/workouts"
+            href="/"
             className="mt-5 inline-flex w-fit rounded-md bg-lime-400 px-5 py-2.5 text-[10px] font-bold uppercase text-black transition hover:bg-lime-300"
           >
             Browse Workouts
