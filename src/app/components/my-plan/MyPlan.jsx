@@ -1,13 +1,17 @@
 "use client";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import PlanHeader from "./PlanHeader";
 import PlanStats from "./PlanStats";
 import PlanList from "./PlanList";
 import EmptyPlan from "./EmptyPlan";
 import { FitContext } from "@/context/FitContext";
+import { useRouter } from "next/navigation";
+
 
 const MyPlan = () => {
+  const router = useRouter();
+
   const { plans, setPlans, savedPlan, setSavedPlan } = useContext(FitContext);
   const [activeTab, setActiveTab] = useState("today");
 
@@ -25,7 +29,7 @@ const MyPlan = () => {
     );
 
     setSavedPlan(updatedSaved);
-    
+
   };
 
   const currentList =
@@ -79,6 +83,12 @@ const MyPlan = () => {
               saved={activeTab === "saved"}
               onRemove={handleRemove}
               onRemoveSaved={handleRemoveSaved}
+              onViewDetails={(item) => {
+                router.push(`/fit/${item.id}`);
+              }}
+              onMarkDone={(id) => {
+                console.log("Mark as Done:", id);
+              }}
             />
           )}
 

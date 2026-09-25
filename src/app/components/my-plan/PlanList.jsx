@@ -8,6 +8,8 @@ const PlanList = ({
   onRemove,
   saved = false,
   onRemoveSaved,
+  onViewDetails,
+  onMarkDone,
 }) => {
   return (
     <div className="space-y-3">
@@ -42,15 +44,28 @@ const PlanList = ({
           </div>
 
 
-          {!saved && (
-            <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => onViewDetails?.(item)}
+              className="rounded-full border border-gray-700 px-4 py-2 text-xs text-gray-300 hover:text-white"
+            >
+              View Details
+            </button>
 
-              <span className="flex h-8 min-w-8 items-center justify-center text-sm font-bold">
-                {item.quantity || 1}
-              </span>
+            {!saved && (
+              <button
+                type="button"
+                onClick={() => onMarkDone?.(item.id)}
+                className="flex items-center gap-1.5 rounded-full bg-[#baff00] px-4 py-2 text-xs font-semibold text-black hover:bg-[#caff33]"
+              >
+                <span>✓</span>
+                Mark as Done
+              </button>
+            )}
+          </div>
 
-            </div>
-          )}
+
 
           <button
             onClick={() =>
