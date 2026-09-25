@@ -2,12 +2,15 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { FitContext } from "@/context/FitContext";
 
 const Nav = () => {
   const pathname = usePathname();
+
+   const { plans, savedPlan } = useContext(FitContext);
 
   const Links = (
     <>
@@ -95,8 +98,8 @@ const Nav = () => {
       </div>
 
       <div className="navbar-end gap-12 text-xl">
-        <h3>Plan</h3>
-        <h3>Saved</h3>
+        <h3>Plan <span className="h-2 w-2 bg-green-400 rounded-full p-2">{plans.length}</span></h3>
+        <h3>Saved <span className="h-2 w-2 bg-green-400 rounded-full p-2">{savedPlan.length}</span></h3>
       </div>
     </div>
   );

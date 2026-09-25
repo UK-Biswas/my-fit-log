@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
+import MyPlan from "../components/my-plan/MyPlan";
 
 const MyPlanPage = () => {
-    return (
-        <div className='container mx-auto'>
-            <h2>my plan page</h2>
-        </div>
-    );
+  return <MyPlan />;
 };
 
 export default MyPlanPage;
